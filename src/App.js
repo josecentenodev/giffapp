@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ListOfGifs from './components/ListOfGifs';
+import {Link, Route} from 'wouter'
+import Home from './pages/Home';
+import './index.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <section className="bg-indigo-900 h-screen">
+      <Link to='/'>
+        <h1 className='text-center text-2xl font-black py-10 text-green-400 hover:cursor-pointer w-1/3 mx-auto'>App</h1>
+      </Link>
+      <Route 
+      component={Home}
+      path='/'
+      />
+      <Route 
+      component={ListOfGifs}
+      path='/search/:keyword'
+      />
+      </section>
   );
 }
 
