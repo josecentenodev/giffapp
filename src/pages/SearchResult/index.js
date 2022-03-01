@@ -1,6 +1,5 @@
 import React from 'react'
 import { Fragment } from 'react' //, useEffect, useState } from 'react'
-import CircularProgress from '@mui/material/CircularProgress'
 import ListOfGifs from '../../components/ListOfGifs'
 import { useGifs } from '../../hooks/useGifs'
 import Spinner from '../../components/Spinner'
@@ -22,7 +21,6 @@ export default function SearchResults({params}) {
     //         setLoading(false)
     //     })
     // }, [keyword])
-    // TODO: AGREGAR ESTILOS AL COMPONENTE CIRCULAR PROGRESS
   return (
     <Fragment>{
         loading
