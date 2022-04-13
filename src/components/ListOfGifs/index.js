@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // import getGifs from '../services/getGifs'
-import Gif from './Gif'
+import Gif from '../Gif'
 
 export default function ListOfGifs({gifs}) {
     // Desde la implementación del custom hook todo cambió y se simplificó todo el código
