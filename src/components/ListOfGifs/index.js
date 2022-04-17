@@ -10,7 +10,7 @@ export default function ListOfGifs({gifs}) {
     //   getGifs({keyword}).then(gifs => setGifs(gifs))
     // }, [keyword])
     return (
-        <div className='grid gap-y-4 py-4 sm:grid-cols-2 sm:gap-2 md:grid-cols-4 md:gap-4'>
+        <div className='min-h-screen grid gap-y-4 py-4 sm:grid-cols-2 sm:gap-2 md:grid-cols-4 md:gap-4'>
             {gifs.map(({id, title, url}) => 
             <Gif 
                 key={id}

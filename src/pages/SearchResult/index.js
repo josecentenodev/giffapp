@@ -25,7 +25,7 @@ export default function SearchResults({params}) {
     <Fragment>{
         loading
         ? <Spinner /> 
-        : <ListOfGifs gifs={gifs} />
+        : <><h3 className='ml-10 py-2 text-green-100 font-bold opacity-70'>{decodeURI(keyword)}</h3><ListOfGifs gifs={gifs} /></>
     }</Fragment>
   )
 }

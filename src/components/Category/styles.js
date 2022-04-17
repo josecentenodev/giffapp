@@ -7,9 +7,10 @@ export const CategoryTitle = styled.h3`
   font-weight: bold;
   margin-bottom: 0.7rem;
   margin-top: 0.6rem;
+  margin-left: 2.5rem;
 
   ${bps.greaterThanMobile} {
-    text-align: center;
+    text-align: left;
   }
 `
 

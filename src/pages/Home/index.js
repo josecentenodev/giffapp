@@ -5,7 +5,7 @@ import { useGifs } from 'hooks/useGifs'
 import TrendingSearches from 'components/TrendingSearches'
 
 export default function Home() {
-    const POPULAR_GIFS = ['Putin', 'Macri', 'Biden', 'WW3']
+    // const POPULAR_GIFS = ['Putin', 'Macri', 'Biden', 'WW3']
     const [keyword, setKeyword] = useState('')
     const [path, pushLocation] = useLocation()
     const{loading, gifs} = useGifs()
@@ -28,7 +28,6 @@ export default function Home() {
     </ul>
     <h3 className='ml-10 py-2 text-green-100 font-bold opacity-70'>Búsqueda Reciente</h3>
     <ListOfGifs gifs={gifs}/>
-    <h3 className='ml-10 py-2 text-green-100 font-bold opacity-70'>Los Gifs más Populares</h3>
     </Fragment>
   )
 }
