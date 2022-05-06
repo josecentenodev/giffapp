@@ -1,12 +1,14 @@
 import {useState, useEffect,useRef} from "react";
 // Crear un hook a partir de algo que desarrollamos
-export default function useNearScreen ({distance = '100px'} = {}) {
+export default function useNearScreen ({distance = '100px', externalRef} = {}) {
   const fromRef = useRef()
 
   const [isNearScreen, setIsNearScreen] = useState(false)
 
   useEffect(function(){
     let observer
+
+    const element = externalRef ? externalRef.current : fromRef.current
 
     const onChange = (entries, observer) => {
       // console.log(entries)
@@ -25,7 +27,7 @@ export default function useNearScreen ({distance = '100px'} = {}) {
         rootMargin: distance
       })
   
-      observer.observe(fromRef.current)
+      if (element) observer.observe(element)
     })
     
     
