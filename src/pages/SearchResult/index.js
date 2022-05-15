@@ -1,10 +1,9 @@
-import React, {useRef} from 'react'//, useEffect, useState } from 'react'
+import React from 'react'//, useEffect, useState } from 'react'
 import ListOfGifs from '../../components/ListOfGifs'
 import { useGifs } from '../../hooks/useGifs'
 import Spinner from '../../components/Spinner'
 import useNearScreen from 'hooks/useNearScreen'
 // import getGifs from '../../services/getGifs'
-import useNearScreen from 'hooks/useNearScreen'
 import { useRef, useEffect, useCallback } from 'react'
 import debounce from 'just-debounce-it'
 
