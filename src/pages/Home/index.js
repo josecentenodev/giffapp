@@ -1,28 +1,23 @@
-import React, {Fragment, useState, useEffect} from 'react'
+import React, {Fragment, useCallback, useEffect} from 'react'
 import {Link, useLocation} from 'wouter'
 import ListOfGifs from 'components/ListOfGifs'
 import { useGifs } from 'hooks/useGifs'
 import TrendingSearches from 'components/TrendingSearches'
+import SearchForm from 'components/SearchForm'
 
 export default function Home() {
     // const POPULAR_GIFS = ['Putin', 'Macri', 'Biden', 'WW3']
-    const [keyword, setKeyword] = useState('')
     const [path, pushLocation] = useLocation()
     const{loading, gifs} = useGifs()
 
-    const handleSubmit = evt => {
-        evt.preventDefault()
+    const handleSubmit = useCallback(({keyword}) => {
         // Navegar a otra ruta
         pushLocation(`/search/${keyword}`)
-    }
-    const handleChange = evt => {
-        setKeyword(evt.target.value)
-    }
+    },[pushLocation])
+
   return (
     <Fragment>
-    <form className='text-center' onSubmit={handleSubmit}>
-        <input placeholder='search a gif here...' className='p-1 rounded' onChange={handleChange} type="text" value={keyword} />
-    </form>
+    <SearchForm onSubmit={handleSubmit} />
     <ul>
         <TrendingSearches/>
     </ul>
