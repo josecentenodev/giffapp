@@ -4,6 +4,7 @@ import ListOfGifs from 'components/ListOfGifs'
 import { useGifs } from 'hooks/useGifs'
 import TrendingSearches from 'components/TrendingSearches'
 import SearchForm from 'components/SearchForm'
+import { Helmet } from 'react-helmet'
 
 export default function Home() {
     // const POPULAR_GIFS = ['Putin', 'Macri', 'Biden', 'WW3']
@@ -17,6 +18,9 @@ export default function Home() {
 
   return (
     <Fragment>
+    <Helmet>
+      <title>Home | Gif App by josecentenodev</title>
+    </Helmet>
     <SearchForm onSubmit={handleSubmit} />
     <ul>
         <TrendingSearches/>

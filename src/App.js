@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import './index.css';
 import SearchResults from './pages/SearchResult';
 import Detail from './pages/Detail';
+import NotFound from './pages/NotFound';
 import StaticContext from './context/StaticContext'
 import { GifsContextProvider } from './context/GifsContext';
 
@@ -26,6 +27,10 @@ function App() {
       <Route 
       component={Detail}
       path='/gif/:id'
+      />
+      <Route 
+      component={NotFound}
+      path='/404'
       />
       </GifsContextProvider>
       </StaticContext.Provider>
