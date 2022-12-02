@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: #00001A;
+}
+
 :root {
     --fz: 16px;
     --theme--contrast-0: #121212;

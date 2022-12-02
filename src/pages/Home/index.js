@@ -8,20 +8,20 @@ import { Helmet } from 'react-helmet'
 
 export default function Home() {
     // const POPULAR_GIFS = ['Putin', 'Macri', 'Biden', 'WW3']
-    const [path, pushLocation] = useLocation()
+    // const [path, pushLocation] = useLocation()
     const{loading, gifs} = useGifs()
 
-    const handleSubmit = useCallback(({keyword}) => {
-        // Navegar a otra ruta
-        pushLocation(`/search/${keyword}`)
-    },[pushLocation])
+    // const handleSubmit = useCallback(({keyword}) => {
+    //     // Navegar a otra ruta
+    //     pushLocation(`/search/${keyword}`)
+    // },[pushLocation])
 
   return (
     <Fragment>
     <Helmet>
       <title>Home | Gif App by josecentenodev</title>
     </Helmet>
-    <SearchForm onSubmit={handleSubmit} />
+    <SearchForm />
     <ul>
         <TrendingSearches/>
     </ul>

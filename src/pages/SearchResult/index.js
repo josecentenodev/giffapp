@@ -7,12 +7,15 @@ import useNearScreen from 'hooks/useNearScreen'
 import { useRef, useEffect, useCallback } from 'react'
 import debounce from 'just-debounce-it'
 import { Helmet } from 'react-helmet'
+import SearchForm from 'components/SearchForm'
 // import useTitle from 'hooks/useTitle'
 
 
 export default function SearchResults({params}) {
-    const {keyword} = params
-    const {loading, gifs, setPage} = useGifs({keyword})
+    // console.log(params)
+    const {keyword, rating} = params
+    // console.log('keyword: ', keyword, 'rating: ', rating)
+    const {loading, gifs, setPage} = useGifs({keyword, rating})
     const externalRef = useRef()
     const {isNearScreen} = useNearScreen({
       externalRef: loading ? null : externalRef,
@@ -59,7 +62,8 @@ export default function SearchResults({params}) {
           <title>{title} | Gif App by josecentenodev</title>
           <meta name="description" content={title}></meta>
         </Helmet>
-            <h3 className='ml-10 py-2 text-green-100 font-bold opacity-70'>{decodeURI(keyword)}</h3>
+        <SearchForm initialKeyword={keyword} initialRating={rating}/>
+            <h3 className='ml-10 py-2 text-green-400 font-bold'>Resultados de Búsqueda: <span className='text-white'>{decodeURI(keyword)}</span></h3>
             <ListOfGifs gifs={gifs} />
             {/* <button className='block mx-auto text-green-100 p-3 bg-green-700 rounded-sm' onClick={handleNextPage}>Get More Gifs</button> */}
             <div id='visor' ref={externalRef}></div>

@@ -10,10 +10,10 @@ import { GifsContextProvider } from './context/GifsContext';
 
 function App() {
   return (
-    <section className="bg-slate-900 min-h-screen">
+    // <section className="bg-slate-900 min-h-screen">
     <StaticContext.Provider value={{name: 'citojose', soydeveloper: true}}>
       <Link to='/'>
-        <h1 className='text-center text-2xl font-black py-10 text-green-400 hover:cursor-pointer w-1/3 mx-auto'>I Love Gif</h1>
+        <h1 className='text-center text-2xl font-black py-10 text-green-400 hover:cursor-pointer w-1/3 mx-auto'>Gif App</h1>
       </Link>
       <GifsContextProvider>
       <Route 
@@ -22,7 +22,7 @@ function App() {
       />
       <Route 
       component={SearchResults}
-      path='/search/:keyword'
+      path='/search/:keyword/:rating?'
       />
       <Route 
       component={Detail}
@@ -30,11 +30,11 @@ function App() {
       />
       <Route 
       component={NotFound}
-      path='/404'
+      path='404'
       />
       </GifsContextProvider>
       </StaticContext.Provider>
-      </section>
+      // </section>
   );
 }
 
