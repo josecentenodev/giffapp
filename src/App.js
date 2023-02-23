@@ -1,21 +1,26 @@
 import React from 'react'
-import {Link, Route} from 'wouter'
-import Home from './pages/Home';
-import './index.css';
-import SearchResults from './pages/SearchResult';
-import Detail from './pages/Detail';
-import NotFound from './pages/NotFound';
-import StaticContext from './context/StaticContext'
-import { GifsContextProvider } from './context/GifsContext';
+import {Link, Route, Switch} from 'wouter'
+import Home from 'pages/Home';
+import SearchResults from 'pages/SearchResult';
+import Detail from 'pages/Detail';
+import NotFound from 'pages/NotFound';
+import {UserContextProvider} from 'context/UserContext'
+import { GifsContextProvider } from 'context/GifsContext';
+import Header from 'components/Header';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import 'index.css';
 
 function App() {
   return (
     // <section className="bg-slate-900 min-h-screen">
-    <StaticContext.Provider value={{name: 'citojose', soydeveloper: true}}>
+    <UserContextProvider>
+    <Header />
       <Link to='/'>
-        <h1 className='text-center text-2xl font-black py-10 text-green-400 hover:cursor-pointer w-1/3 mx-auto'>Gif App</h1>
+        <h1 className='text-center text-2xl font-black py-3 text-green-400 hover:cursor-pointer w-1/3 mx-auto mb-5'>Gif App</h1>
       </Link>
       <GifsContextProvider>
+      <Switch>
       <Route 
       component={Home}
       path='/'
@@ -29,11 +34,20 @@ function App() {
       path='/gif/:id'
       />
       <Route 
-      component={NotFound}
-      path='404'
+        component={Login}
+        path='/login'
       />
+      <Route 
+        component={Register}
+        path='/register'
+      />
+      <Route 
+      component={NotFound}
+      path='/:rest*'
+      />
+      </Switch>
       </GifsContextProvider>
-      </StaticContext.Provider>
+      </UserContextProvider>
       // </section>
   );
 }
